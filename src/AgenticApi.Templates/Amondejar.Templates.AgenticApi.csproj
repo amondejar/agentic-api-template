@@ -3,7 +3,7 @@
   <!-- dotnet new agentic-api. A content-only package: the template lives in content/agentic-api. -->
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <PackageId>AgenticApi.Templates</PackageId>
+    <PackageId>Amondejar.Templates.AgenticApi</PackageId>
     <PackageType>Template</PackageType>
     <Description>dotnet new agentic-api: an ASP.NET Core API ready for AI agents. Keel endpoints as MCP tools with user confirmation, a McpRazor review panel inside Claude and Copilot, SpecTrace requirements traced to code and tests, SkillLock checking agent skills on every build, and AGENTS.md, Copilot setup steps and MCP configuration for coding agents.</Description>
     <PackageTags>dotnet-new;templates;mcp;mcp-apps;ai-agents;agents;keel;mcprazor;spectrace;skilllock;copilot;claude;sdd</PackageTags>

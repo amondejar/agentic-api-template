@@ -22,7 +22,7 @@ fail() { echo "  ✗ $1"; [ -f "$work/out.txt" ] && tail -40 "$work/out.txt"; ex
 
 echo "Pack and install the template"
 dotnet pack "$repo/src/AgenticApi.Templates" -c Release -o "$work/pkg" > "$work/out.txt" 2>&1 || fail "pack"
-dotnet new install "$work/pkg"/AgenticApi.Templates.*.nupkg > "$work/out.txt" 2>&1 || fail "install"
+dotnet new install "$work/pkg"/Amondejar.Templates.AgenticApi.*.nupkg > "$work/out.txt" 2>&1 || fail "install"
 ok "template installed"
 
 nuget_config() {

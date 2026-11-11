@@ -2,7 +2,7 @@
 
 ## 0.1.0-preview.1
 
-First release of `dotnet new agentic-api`.
+First release of `dotnet new agentic-api`, published as `Amondejar.Templates.AgenticApi`.
 
 - Keel.Endpoints API (list, get, approve, reject loan applications), every endpoint offered to agents as an MCP tool
   with parameter descriptions; approve and reject need the user's confirmation, with an approval link as fallback.

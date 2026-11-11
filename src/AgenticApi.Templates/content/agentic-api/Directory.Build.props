@@ -1,0 +1,26 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- The agentic stack, in one place. -->
+  <PropertyGroup>
+    <KeelVersion>1.0.0-rc.7</KeelVersion>
+    <McpRazorVersion>0.1.0-preview.2</McpRazorVersion>
+    <SpecTraceVersion>0.10.2-preview.1</SpecTraceVersion>
+    <SkillLockVersion>0.1.0-preview.1</SkillLockVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Checks the agent skills (SKILL.md) that packages bring in, on every build: prompt injection, hidden text,
+      remote code execution. Review them with "dotnet skilllock scan", lock them with "dotnet skilllock lock".
+    -->
+    <PackageReference Include="SkillLock" Version="$(SkillLockVersion)" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

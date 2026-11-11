@@ -9,7 +9,7 @@ without the user, UI inside the chat, requirements the agent can follow, and a r
 without guessing. This template puts them together, working, with a sample domain you replace with yours.
 
 ```bash
-dotnet new install AgenticApi.Templates
+dotnet new install Amondejar.Templates.AgenticApi
 dotnet new agentic-api -n Lending
 cd Lending
 dotnet run --project src/Lending

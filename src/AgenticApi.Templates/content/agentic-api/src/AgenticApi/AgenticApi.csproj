@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- ASP0029: [ValidatableType] is experimental in .NET 10. MCPEXP003: MCP Apps are experimental in the MCP SDK. -->
+    <NoWarn>$(NoWarn);ASP0029;MCPEXP003</NoWarn>
+    <!-- The review panel runs on the server through McpRazor: the Blazor browser scripts are not needed. -->
+    <RequiresAspNetWebAssets>false</RequiresAspNetWebAssets>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Endpoints, one class each, offered to agents as MCP tools; destructive tools ask the user first. -->
+    <PackageReference Include="Keel.Endpoints" Version="$(KeelVersion)" />
+    <PackageReference Include="Keel.Endpoints.Mcp" Version="$(KeelVersion)" />
+    <PackageReference Include="Keel.Endpoints.Agents" Version="$(KeelVersion)" />
+    <!-- Interactive panels inside Claude and Copilot, written as Razor components. -->
+    <PackageReference Include="McpRazor" Version="$(McpRazorVersion)" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="2.3.1" />
+    <!-- Requirements in specs/*.spec.md, traced to the code that implements them. -->
+    <PackageReference Include="SpecTrace" Version="$(SpecTraceVersion)" />
+<!--#if (openapi) -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
+    <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.18.0" />
+<!--#endif -->
+  </ItemGroup>
+
+</Project>

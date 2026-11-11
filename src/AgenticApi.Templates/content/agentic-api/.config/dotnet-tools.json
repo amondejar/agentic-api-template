@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "spectrace.tool": {
+      "version": "0.10.2-preview.1",
+      "commands": ["spectrace"],
+      "rollForward": true
+    },
+    "skilllock.tool": {
+      "version": "0.1.0-preview.1",
+      "commands": ["skilllock"],
+      "rollForward": true
+    }
+  }
+}

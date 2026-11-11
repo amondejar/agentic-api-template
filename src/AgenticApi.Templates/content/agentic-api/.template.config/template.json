@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Antonio Mondéjar",
+  "classifications": [
+    "Web",
+    "WebAPI",
+    "AI",
+    "MCP",
+    "Agents"
+  ],
+  "identity": "AgenticApi.Templates.Solution",
+  "name": "Agentic API",
+  "description": "An ASP.NET Core API ready for AI agents: Keel endpoints as MCP tools with user confirmation, a McpRazor review panel inside Claude and Copilot, SpecTrace requirements traced to code and tests, and SkillLock checking agent skills in every build.",
+  "shortName": "agentic-api",
+  "sourceName": "AgenticApi",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "symbols": {
+    "openapi": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true",
+      "description": "Add OpenAPI and the Scalar API reference (/scalar) in development."
+    },
+    "port": {
+      "type": "parameter",
+      "datatype": "integer",
+      "defaultValue": "5080",
+      "replaces": "5080",
+      "description": "The HTTP port of the API in development. The MCP endpoint is http://localhost:<port>/mcp."
+    },
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Skip the automatic restore after creating the solution.",
+      "defaultValue": "false"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "postActions": [
+    {
+      "description": "Restore packages.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true,
+      "condition": "(!skipRestore)"
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "AgenticApi.slnx"
+    }
+  ]
+}

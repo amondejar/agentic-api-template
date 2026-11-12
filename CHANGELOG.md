@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-preview.2
+
+- Keel.Endpoints 1.0.0-rc.8: lean tool results. `loans_list` returns at most 20 applications (the agent is told how
+  to narrow the call) and, like `loans_get`, takes a `fields` argument; the model's text has no null fields. Optional
+  filters are no longer required in the tool schemas.
+- AGENTS.md: list tools set `MaxItems` and `FieldSelection`.
+
 ## 0.1.0-preview.1
 
 First release of `dotnet new agentic-api`, published as `Amondejar.Templates.AgenticApi`.

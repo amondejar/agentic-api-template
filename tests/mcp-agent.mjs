@@ -29,6 +29,14 @@ ok(tools.loans_list.annotations?.readOnlyHint === true, 'loans_list is read-only
 ok(tools.review_loans._meta?.ui?.resourceUri === 'ui://loans/review', 'review_loans opens the review panel');
 ok(!tools.mcp_razor_render || tools.mcp_razor_render._meta?.ui?.visibility?.includes('app'), 'panel plumbing tools are hidden from the model');
 
+console.log('Lean results');
+ok(tools.loans_list.inputSchema.properties.fields?.items?.enum?.includes('applicant'), 'loans_list offers a fields argument');
+ok(!(tools.loans_list.inputSchema.required ?? []).includes('status'), 'optional filters are not required');
+const slim = await mcp('tools/call', { name: 'loans_list', arguments: { fields: ['id', 'applicant'] } });
+const slimText = slim.body?.result?.content?.[0]?.text ?? '';
+ok(slimText.startsWith('[{"id":"L-1042","applicant":"María López"}'), 'the agent gets only the fields it asks for', slimText.slice(0, 200));
+ok(!slimText.includes('null'), 'no null fields in the text the model reads', slimText.slice(0, 200));
+
 console.log('Agent reads data');
 const listed = await mcp('tools/call', { name: 'loans_list', arguments: { status: 'Pending', minAmount: 20000 } });
 const listedText = JSON.stringify(listed.body?.result);

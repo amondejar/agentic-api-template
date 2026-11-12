@@ -26,6 +26,8 @@ or no test: fix it, don't suppress it.
    for the model: what it does and what the arguments mean.
    - Anything that changes data must set `tool.Destructive` (true if it overwrites or deletes).
    - Anything irreversible must ask the user: `RequireConfirmation<TRequest>(r => $"...")` with the real values.
+   - Lists: set `tool.MaxItems` and `tool.FieldSelection = true`, so the agent does not pay for rows and fields it does
+     not need on every later turn.
 5. **Panels.** Interactive UI for the chat is a Razor component in `src/AgenticApi/Apps` with `[McpApp("ui://...")]`,
    opened by a tool with `[McpAppUi(ResourceUri = "ui://...")]` (see `ReviewTools.cs`).
 

@@ -13,7 +13,7 @@ public sealed record GetLoan([property: Description("The application ID, for exa
 public sealed class Endpoint(LoanBook loans) : ResultEndpoint<GetLoan, Results<Ok<LoanApplication>, NotFound>>
 {
     public override void Configure(EndpointOptions options) =>
-        options.ExposeAsTool("Gets a loan application by its ID, for example L-1042.");
+        options.ExposeAsTool("Gets a loan application by its ID, for example L-1042.", tool => tool.FieldSelection = true);
 
     public override Task<Results<Ok<LoanApplication>, NotFound>> HandleAsync(GetLoan request, CancellationToken ct) =>
         Task.FromResult<Results<Ok<LoanApplication>, NotFound>>(

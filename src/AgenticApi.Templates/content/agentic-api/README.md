@@ -33,7 +33,8 @@ URL, see below).
 
 Then try:
 
-- *"Which loan applications are pending over 20 000 €?"* → the agent calls `loans_list`.
+- *"Which loan applications are pending over 20 000 €?"* → the agent calls `loans_list`. Results are lean: no null
+  fields, at most 20 applications (the agent is told how to narrow the call), and only the fields it asks for.
 - *"Let me review the pending loans"* → `review_loans` opens the review panel. You approve or reject with a click.
 - *"Reject L-1043, the debt ratio is above 40 %"* → the agent calls `loans_reject`, and **you** confirm. If your client
   cannot show a confirmation, the agent gives you a link to approve it at `/approvals/...`.
